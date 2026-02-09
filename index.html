@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Checker</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+        }
+
+        .container {
+            width: 420px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 28px;
+        }
+
+        p {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #ff9800;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e68900;
+            transform: scale(1.03);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* New AQI details card */
+        .air-quality-card {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            display: none;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        .air-quality-card h2 {
+            margin: 0;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .aqi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .aqi-box {
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.18);
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .aqi-box span {
+            display: block;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .aqi-good {
+            color: #00ff6a;
+        }
+
+        .aqi-moderate {
+            color: yellow;
+        }
+
+        .aqi-bad {
+            color: red;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🌍 Air Quality Checker</h1>
+        <form id="form">
+        <p>Enter your latitude and longitude to check AQI</p>
+
+        <input type="number" id="lat" placeholder="Enter Latitude (Example: 17.3850)">
+        <input type="number" id="lon" placeholder="Enter Longitude (Example: 78.4867)">
+
+        <button type="Submit">Calculate AQI</button>
+        </form>
+
+        <!-- AQI Main Result -->
+        <div class="result" id="resultBox"></div>
+
+        <!-- Air Quality Card (Hidden Initially) -->
+        <div class="air-quality-card" id="airCard">
+            <h2>🌫 Air Quality Details</h2>
+
+            <div class="aqi-grid">
+                <div class="aqi-box">
+                    AQI
+                    <span id="aqiValue">--</span>
+                </div>
+
+                <div class="aqi-box">
+                    CO
+                    <span id="coValue">--</span>
+                </div>
+
+                <div class="aqi-box">
+                    NO₂
+                    <span id="no2Value">--</span>
+                </div>
+
+                <div class="aqi-box">
+                    O₃
+                    <span id="o3Value">--</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js">
+       
+    </script>
+
+</body>
+</html>
